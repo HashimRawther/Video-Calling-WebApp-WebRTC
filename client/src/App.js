@@ -31,6 +31,7 @@ class App extends Component {
     render() {
         return (
             <div className="App">
+                <p id="RoomId"></p>
                 <div className="vc-options">
                     <button onClick = {this.setHost}>Host VC</button>
         

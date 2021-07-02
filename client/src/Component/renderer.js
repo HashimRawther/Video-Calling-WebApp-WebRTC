@@ -111,7 +111,7 @@ function roomMediaStatus()
 function renderer(ROOM_ID, username, audioEnable = true, videEnable = true)
 {
     myPeer = new Peer({host:'codebois-peer-server.herokuapp.com', secure:true, port:443})
-
+    document.getElementById('RoomId').innerHTML += ROOM_ID
     const videoGrid = document.getElementById('video-grid')        
     const myVideo = document.createElement('video')
     myVideo.muted = true
@@ -272,9 +272,9 @@ function toggleAudio()
     audioStatuses[0].replaceWith(audioIcon(localStream.getAudioTracks()[0].enabled))
 
     socket.emit('peer-track-sender')
-    setTimeout( ()=>{
+    // setTimeout( ()=>{
         socket.emit('audio-toggle-sender', myPeer.id, localStream.getAudioTracks()[0].enabled)
-    }, 50)
+    // }, 50)
     
 }
 
@@ -286,9 +286,9 @@ function toggleVideo()
     videoStatuses[0].replaceWith(videoIcon(localStream.getVideoTracks()[0].enabled))
 
     socket.emit('peer-track-sender')
-    setTimeout( ()=>{
+    // setTimeout( ()=>{
         socket.emit('video-toggle-sender', myPeer.id, localStream.getVideoTracks()[0].enabled)
-    }, 50)
+    // }, 50)
     
 }
 
